@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT1</title>
+<style>
+ body{
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+</style>
+</head>
+<body>
+    <button id="dark-mode" onclick="darkmode_toggle()">Dark/Light</button>
+    <button onclick="getApiContent()">RSS</button>
+    <div id="Rss_name"></div>
+    <div id="Rss_temp"></div>
+</body>
+    <script>
+        // API
+        function getApiContent(){
+            URL="http://api.weatherapi.com/v1/current.json?key=53a320b2a2084a99ad241126242208&q=Mildura&aqi=no";
+                fetch(URL)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.location.name) {
+                            document.getElementById("Rss_name").innerHTML = data.location.name;  
+                            //const response = await fetch(URL);
+                            const myElement = document.getElementById("Rss_name")
+                            myElement.innerHTML = data.location.name;            
+                            console.log(data.location.name);
+                        } else { 
+                            document.getElementById("Rss_name").innerHTML = "Sorry, no response";
+                            const myElement = document.getElementById("Rss_name")
+                            console.log("Not Found");
+                            }
+                        if (data.current.temp_c) {
+                            document.getElementById("Rss_temp").innerHTML = data.current.temp_c;  
+                            //const response = await fetch(URL);
+                            const myElement = document.getElementById("Rss_temp")
+                            myElement.innerHTML = data.current.temp_c;            
+                            console.log(data.current.temp_c);
+                        } else { 
+                            document.getElementById("Rss_temp").innerHTML = "Sorry, no response";
+                            const myElement = document.getElementById("Rss_temp")
+                            console.log("Not Found");
+                            }
+                    })     
+        }            
+        //darkmode
+        function darkmode_toggle() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }   
+     </script>
+</html>
+

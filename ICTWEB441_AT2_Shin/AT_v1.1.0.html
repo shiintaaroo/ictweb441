@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <script>
+        let name = "A_name"
+        // from the html
+
+                URL="https://www.weatherapi.com/weather/q/mildura-victoria-australia-133379"
+
+                fetch(URL + name)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.name) {
+                            document.getElementById("response").innerHTML = data.age;
+                                        }
+                        else { 
+                            document.getElementById("response").innerHTML = "Sorry, no response";
+                            }
+                    })
+
+     </script>
+</html>
+

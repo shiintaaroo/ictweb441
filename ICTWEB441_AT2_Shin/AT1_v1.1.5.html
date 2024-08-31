@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT1</title>
+<style>
+ body{
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+</style>
+</head>
+<body>
+    <button id="dark-mode" onclick="darkmode_toggle()">Dark/Light</button>
+    <button id="p1" onclick="getApiContent()">RSS</button>
+</body>
+    <script>
+        // API
+        function getApiContent(){
+            URL="http://api.weatherapi.com/v1/current.json?key=53a320b2a2084a99ad241126242208&q=Mildura&aqi=no";
+                fetch(URL)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.location) {
+                            document.getElementById("response").innerHTML = data.location;  
+                            console.log(data);
+                            const myElement = document.getElementById("p1")
+                            myElement.innerHTML = data.location;            
+                        } else { 
+                            document.getElementById("response").innerHTML = "Sorry, no response";
+                            }
+                    })     
+        }            
+
+        //darkmode
+        function darkmode_toggle() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }   
+     </script>
+</html>
+
