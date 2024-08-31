@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT1</title>
+<style>
+ body{
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+</style>
+</head>
+<body>
+    <button onclick="darkmode_toggle()">Dark/Light</button>
+    <button onclick="getApiContent()">RSS</button>
+</body>
+    <script>
+        let name = "A_name"
+        // API
+            URL="http://api.weatherapi.com/v1/current.json?key=53a320b2a2084a99ad241126242208&q=Mildura&aqi=no";
+                fetch(URL)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.name) {
+                            document.getElementById("response").innerHTML = data.age;
+                                        }
+                        else { 
+                            document.getElementById("response").innerHTML = "Sorry, no response";
+                            }
+                    })
+        function getApiContent(){
+            var URL = "http://api.weatherapi.com/v1/current.json?key=53a320b2a2084a99ad241126242208&q=Mildura&aqi=no";
+            console.log(URL);
+            var data = fetch(URL).json();
+            console.log(data);
+            const myElement = document.getElementById("p1")
+            myElement.innerHTML = data.property1;
+        }            
+
+        //darkmode
+        function darkmode_toggle() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }   
+     </script>
+</html>
+
