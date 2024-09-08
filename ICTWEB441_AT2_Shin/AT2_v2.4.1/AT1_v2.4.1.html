@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT1</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 
+ filename: AT2_V2.2.1.html, script.js, styles.css
+ title: dynamic feature of javascript
+ author: Shintaro Kasahara
+ email: 30024890@students.sunitafe.edu.au
+ version: 1.4.1
+ 
+ ==description==
+ This script contains the following dynamic features.
+ 1. Toggle between Dark/Light mode
+ 2. Fetch and display data from RSS feed
+ 3. Fetch and display the current temperature from a weather API
+ 
+==How to use==
+ 1. Clicking the "Dark/Light" button toggles the page changes between dark mode and light mode.
+ 2. Clicking the "RSS" button, data from the RSS feed and displays it on the page.
+ 3. Clicking the "weatherapi" button fetches the current temperature, and shows figure and text. 
+
+copyright (c) 2024 XYZ.Company. All rights reserved.
+ -->
+
+
+</head>
+<body>
+    <button id="dark-mode" onclick="darkmode_toggle()">Dark/Light</button>
+    <button onclick="getApiContent()">RSS</button>
+    <div id="Rss_version"></div>
+    <div id="Rss_description"></div>
+    <div id="Rss_guid"></div>
+    <button onclick="getApiwether()">weatherapi</button>
+    <div id="Rss_wether"></div>
+    <div id="temperature-status"></div>
+    <form id="age-form">
+        <input type="text" id="name-input" placeholder="Enter name">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="result"></div>    
+</body>
+<script src="script.js">
+</script>
+</html>
+
